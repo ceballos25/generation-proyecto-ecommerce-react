@@ -1,7 +1,12 @@
+import HeroSection from '../ui/home/HeroSection';
+import ProductsSection from '../ui/home/ProducstSection';
+import '../ui/styles/home.css'
+
 const Home = () => {
     return (
         <>
-        <p>Home</p>
+        <HeroSection />
+        <ProductsSection />
         </>
     )
 }

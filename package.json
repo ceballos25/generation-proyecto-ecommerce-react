@@ -16,7 +16,11 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2",
+<<<<<<< HEAD
     "swiper": "^12.1.4"
+=======
+    "sweetalert2": "^11.26.24"
+>>>>>>> 5fb7424235204bcef95a9289c0c2802260764b58
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

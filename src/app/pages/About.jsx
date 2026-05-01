@@ -1,6 +1,7 @@
 import { Swiper } from "swiper/react";
 import SwiperAbout from "../ui/about/SwiperAbout";
 import "swiper/css";
+import "../ui/styles/about.css";
 const About = () => {
   return (
     <>

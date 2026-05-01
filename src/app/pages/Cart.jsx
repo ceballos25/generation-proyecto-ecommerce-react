@@ -1,4 +1,4 @@
-import { useCart } from "../app/hooks/useCart.js";
+import { useCart } from "../hooks/useCart";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";

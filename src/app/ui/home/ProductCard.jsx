@@ -1,43 +1,54 @@
 import { formatPrice } from '../../services/utils.service';
-// import { cartService } from '../../services/cartSevices';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
+import Swal from 'sweetalert2';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const { add } = useCart();
 
   const handleCardClick = () => {
     navigate(`/products/${product.id}`);
   };
 
-//   const handleAddToCart = (e) => {
-//     e.stopPropagation();
-//     cartService.add(product);
-//   };
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    add(product);
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Agregado al carrito',
+      text: product.name,
+      timer: 1200,
+      showConfirmButton: false,
+      position: 'top-end',
+      toast: true
+    });
+  };
 
   return (
-    <div className="col" data-category={product.category}>
+    <div className="col">
       <div className="card product-card h-100" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
-        <img
-          src={product.image}
-          className="card-img-top"
-          alt={product.name}
-          loading="lazy"
-        />
+        
+        <img src={product.image} className="card-img-top" alt={product.name} />
+
         <div className="card-body">
-          <span className="card-category">{product.category}</span>
-          <h5 className="card-title">{product.name}</h5>
-          <p className="card-description">{product.description}</p>
-          <div className="card-footer-custom">
-            <span className="card-price">{formatPrice(product.price)}</span>
+          <span>{product.category}</span>
+          <h5>{product.name}</h5>
+          <p>{product.description}</p>
+
+          <div className="d-flex justify-content-between">
+            <span>{formatPrice(product.price)}</span>
+
             <button
               className="btn-add-cart"
-              aria-label="Agregar al carrito"
-            //   onClick={handleAddToCart}
+              onClick={handleAddToCart}
             >
-              <i className="bi bi-cart-plus"></i> Agregar
+              <i className="bi bi-cart-plus"></i>
             </button>
           </div>
         </div>
+
       </div>
     </div>
   );

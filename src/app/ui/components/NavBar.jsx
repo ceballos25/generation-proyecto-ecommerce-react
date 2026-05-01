@@ -74,63 +74,81 @@ const CorotoNavBar = () => {
                 <span id="cart-count" className="position-absolute badge rounded-pill nav-badge">0</span>
               </div>
 
-              {/* Dropdown usuario — solo si está logueado */}
-              {user && (
-                <div className="dropdown">
-                  <button className="nav-icon-btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i className="bi bi-person-circle fs-4"></i>
-                  </button>
+              {/* Dropdown desktop */}
+              <div className="dropdown">
+                <button className="nav-icon-btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i className="bi bi-person-circle fs-4"></i>
+                </button>
 
-                  <ul className="dropdown-menu dropdown-menu-end shadow-lg mt-2 rounded-4 py-3 nav-dropdown">
+                <ul className="dropdown-menu dropdown-menu-end shadow-lg mt-2 rounded-4 py-3 nav-dropdown">
+                  {user ? (
+                    <>
+                      <li>
+                        <h6 className="dropdown-header fw-bold small text-uppercase text-center nav-dropdown-header">
+                          Mi Perfil
+                        </h6>
+                      </li>
+                      <li>
+                        <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="#">
+                          <i className="bi bi-person fs-5"></i>Ver Perfil
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="#">
+                          <i className="bi bi-receipt fs-5"></i>Mis Pedidos
+                        </a>
+                      </li>
 
-                    <li>
-                      <h6 className="dropdown-header fw-bold small text-uppercase text-center nav-dropdown-header">
-                        Mi Perfil
-                      </h6>
-                    </li>
-                    <li>
-                      <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="#">
-                        <i className="bi bi-person fs-5"></i>Ver Perfil
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="#">
-                        <i className="bi bi-receipt fs-5"></i>Mis Pedidos
-                      </a>
-                    </li>
+                      {user.role === "Admin" && (
+                        <>
+                          <li><hr className="dropdown-divider nav-dropdown-divider my-2" /></li>
+                          <li>
+                            <h6 className="dropdown-header fw-bold small text-uppercase text-center nav-dropdown-header">
+                              Administración
+                            </h6>
+                          </li>
+                          <li>
+                            <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="/admin_dashboard">
+                              <i className="bi bi-kanban fs-5"></i>Panel Productos
+                            </a>
+                          </li>
+                          <li>
+                            <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="/admin_users">
+                              <i className="bi bi-people-fill fs-5"></i>Gestión Usuarios
+                            </a>
+                          </li>
+                        </>
+                      )}
 
-                    {/* Sección admin — solo si es Admin */}
-                    {user.role === "Admin" && (
-                      <>
-                        <li><hr className="dropdown-divider nav-dropdown-divider my-2" /></li>
-                        <li>
-                          <h6 className="dropdown-header fw-bold small text-uppercase text-center nav-dropdown-header">
-                            Administración
-                          </h6>
-                        </li>
-                        <li>
-                          <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="/admin_dashboard">
-                            <i className="bi bi-kanban fs-5"></i>Panel Productos
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="/admin_users">
-                            <i className="bi bi-people-fill fs-5"></i>Gestión Usuarios
-                          </a>
-                        </li>
-                      </>
-                    )}
+                      <li><hr className="dropdown-divider nav-dropdown-divider my-2" /></li>
+                      <li>
+                        <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-danger-item" href="#" onClick={handleLogout}>
+                          <i className="bi bi-box-arrow-right fs-5"></i>Cerrar Sesión
+                        </a>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        <h6 className="dropdown-header fw-bold small text-uppercase text-center nav-dropdown-header">
+                          Bienvenido
+                        </h6>
+                      </li>
+                      <li>
+                        <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="/login">
+                          <i className="bi bi-box-arrow-in-right fs-5"></i>Iniciar Sesión
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-dropdown-item" href="/register">
+                          <i className="bi bi-person-plus fs-5"></i>Registrarse
+                        </a>
+                      </li>
+                    </>
+                  )}
+                </ul>
+              </div>
 
-                    <li><hr className="dropdown-divider nav-dropdown-divider my-2" /></li>
-                    <li>
-                      <a className="dropdown-item py-2 px-4 d-flex align-items-center gap-3 nav-danger-item" href="#" onClick={handleLogout}>
-                        <i className="bi bi-box-arrow-right fs-5"></i>Cerrar Sesión
-                      </a>
-                    </li>
-
-                  </ul>
-                </div>
-              )}
             </div>
           </div>
 
@@ -149,8 +167,8 @@ const CorotoNavBar = () => {
 
         <div className="offcanvas-body px-4 pt-3 d-flex flex-column">
 
-          {/* Perfil — solo si está logueado */}
-          {user && (
+          {/* Perfil */}
+          {user ? (
             <div className="d-flex align-items-center gap-3 mb-4 offcanvas-profile">
               <div className="offcanvas-avatar">
                 <i className="bi bi-person-fill fs-5"></i>
@@ -160,8 +178,19 @@ const CorotoNavBar = () => {
                 <p className="mb-0 offcanvas-email">{user.email}</p>
               </div>
             </div>
+          ) : (
+            <div className="d-flex align-items-center gap-3 mb-4 offcanvas-profile">
+              <div className="offcanvas-avatar">
+                <i className="bi bi-person-fill fs-5"></i>
+              </div>
+              <div>
+                <p className="mb-0 fw-semibold offcanvas-username">Invitado</p>
+                <p className="mb-0 offcanvas-email">Inicia sesión para continuar</p>
+              </div>
+            </div>
           )}
 
+          {/* Links siempre visibles */}
           <p className="mb-2 offcanvas-section-label">Menú</p>
           <ul className="nav flex-column gap-1 mb-4">
             <li><a className="nav-link offcanvas-nav-link" href="/"><i className="bi bi-house-door"></i> Inicio</a></li>
@@ -169,7 +198,7 @@ const CorotoNavBar = () => {
             <li><a className="nav-link offcanvas-nav-link" href="/contact"><i className="bi bi-chat-dots"></i> Contacto</a></li>
           </ul>
 
-          {/* Sección admin mobile — solo si es Admin */}
+          {/* Sección admin — solo si es Admin */}
           {user?.role === "Admin" && (
             <>
               <p className="mb-2 offcanvas-section-label">Administración</p>
@@ -180,13 +209,23 @@ const CorotoNavBar = () => {
             </>
           )}
 
-          {user && (
-            <div className="mt-auto pb-2">
+          {/* Footer offcanvas */}
+          <div className="mt-auto pb-2 d-flex flex-column gap-2">
+            {user ? (
               <a href="#" className="offcanvas-logout" onClick={handleLogout}>
                 <i className="bi bi-box-arrow-right"></i> Cerrar Sesión
               </a>
-            </div>
-          )}
+            ) : (
+              <>
+                <a href="/login" className="offcanvas-logout">
+                  <i className="bi bi-box-arrow-in-right"></i> Iniciar Sesión
+                </a>
+                <a href="/register" className="offcanvas-logout">
+                  <i className="bi bi-person-plus"></i> Registrarse
+                </a>
+              </>
+            )}
+          </div>
 
         </div>
       </div>

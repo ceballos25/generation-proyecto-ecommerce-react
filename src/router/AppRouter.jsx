@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import CorotoNavBar from "../app/ui/components/NavBar.jsx";
 
-import Home from "../pages/Home.jsx";
-import About from "../pages/About.jsx";
-import Contact from "../pages/Contact.jsx";
-import Cart from "../pages/Cart.jsx";
+import Home from "../app/pages/Home.jsx";
+import About from "../app/pages/About.jsx";
+import Contact from "../app/pages/Contact.jsx";
+import Cart from "../app/pages/Cart.jsx";
 
 const AppRouter = () => {
   return (

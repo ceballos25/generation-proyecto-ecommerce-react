@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+
+const CartContext = createContext();
 
 const STORAGE_KEY = "cart";
 
-export const useCart = () => {
+export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -16,6 +18,11 @@ export const useCart = () => {
   };
 
   const add = (product) => {
+    const normalizedProduct = {
+      ...product,
+      price: Number(product.price) || 0,
+    };
+
     const existing = cart.find(item => item.id === product.id);
 
     let newCart;
@@ -27,22 +34,22 @@ export const useCart = () => {
           : item
       );
     } else {
-      newCart = [...cart, { ...product, quantity: 1 }];
+      newCart = [...cart, { ...normalizedProduct, quantity: 1 }];
     }
 
     saveCart(newCart);
   };
 
   const remove = (id) => {
-    const newCart = cart.filter(item => item.id !== id);
-    saveCart(newCart);
+    saveCart(cart.filter(item => item.id !== id));
   };
 
   const updateQuantity = (id, quantity) => {
-    const newCart = cart.map(item =>
-      item.id === id ? { ...item, quantity } : item
+    saveCart(
+      cart.map(item =>
+        item.id === id ? { ...item, quantity } : item
+      )
     );
-    saveCart(newCart);
   };
 
   const clear = () => {
@@ -51,27 +58,32 @@ export const useCart = () => {
   };
 
   const getTotalItems = () => {
-    return cart.reduce((acc, item) => acc + Number(item.quantity || 0), 0);
+    return cart.reduce((acc, item) => acc + (Number(item.quantity) || 0), 0);
   };
 
   const getTotalPrice = () => {
     return cart.reduce((acc, item) => {
-      const price = Number(item.price);
-      const qty = Number(item.quantity);
-
-      if (isNaN(price) || isNaN(qty)) return acc;
-
+      const price = Number(item.price) || 0;
+      const qty = Number(item.quantity) || 0;
       return acc + price * qty;
     }, 0);
   };
 
-  return {
-    cart,
-    add,
-    remove,
-    updateQuantity,
-    clear,
-    getTotalItems,
-    getTotalPrice
-  };
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        add,
+        remove,
+        updateQuantity,
+        clear,
+        getTotalItems,
+        getTotalPrice
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 };
+
+export const useCart = () => useContext(CartContext);

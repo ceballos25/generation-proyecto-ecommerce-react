@@ -1,18 +1,18 @@
-import { api } from './api.js';
-import { Product } from '../models/Product.js';
+import { api } from "./api.js";
 
 export const productService = {
-  async getAll() {
-    const data = await api.get('/products');
-    return data.map(p => new Product(p));
-  },
-
-  async getById(id) {
-    const data = await api.get(`/products/${id}`);
-    return new Product(data);
-  },
+  getAll: async () => {
+  const data = await api.get('/products');
+  return data.map(p => ({
+    ...p,
+    price: Number(p.price) || 0
+  }));
+},
+  getById: (id) => api.get(`/products/${id}`),
+  getByCategory: (cat) => api.get(`/products?category=${cat}`),
 
   create: (product) => api.post('/products', product),
   update: (id, product) => api.put(`/products/${id}`, product),
+  patch: (id, data) => api.patch(`/products/${id}`, data),
   delete: (id) => api.delete(`/products/${id}`)
 };

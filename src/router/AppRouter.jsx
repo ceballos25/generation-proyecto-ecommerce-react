@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "../app/ui/components/navbar.jsx";
+import CorotoNavBar from "../app/ui/components/NavBar.jsx";
 
 import Home from "../pages/Home.jsx";
 import About from "../pages/About.jsx";
@@ -9,7 +9,7 @@ import Cart from "../pages/Cart.jsx";
 const AppRouter = () => {
   return (
     <>
-      <Navbar />
+      <CorotoNavBar />
 
       <Routes>
         <Route path="/" element={<Home />} />

@@ -49,7 +49,7 @@
 body {
     width: 100%;
     /* cambio*/
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--gray-light);
     font-family: var(--font);
 
@@ -370,5 +370,15 @@ body {
 footer {
     background-color: var(--primary) !important;
     color: var(--gray-light);
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+    height: 100%;
 }
 

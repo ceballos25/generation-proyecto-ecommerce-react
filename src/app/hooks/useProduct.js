@@ -5,8 +5,10 @@ export const useProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    productService.getAll().then(setProducts);
+    // productService.getAll().then(setProducts);
+    setProducts(productService.getAll());
   }, []);
 
   return { products };
 };
+

@@ -14,6 +14,7 @@
 /* 3. Permitir que el porcentaje de altura funcione en el body */
 html, body {
   height: 100%;
+  width: 100%;
 }
 
 /* 4. Mejorar el renderizado de texto y suavizado */

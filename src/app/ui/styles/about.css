@@ -7,17 +7,15 @@
   height: 90%;
 }
 
-/* Swiper container */
+/* Swiper container — no usar overflow:visible aquí: anula .swiper y rompe el swipe horizontal */
 .team-swiper {
   padding: 40px 0 60px;
-  overflow: visible;
 }
 
-/* Slide base */
+/* Dejar que Swiper controle el ancho según slidesPerView; un ancho fijo desincroniza translate3d */
 .team-swiper .swiper-slide {
-  width: 400px;
   height: auto;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Slide activo (centro) */
@@ -42,13 +40,6 @@
   opacity: 1;
   width: 24px;
   border-radius: 5px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .team-swiper .swiper-slide {
-    width: 320px;
-  }
 }
 
 .border-danger {

@@ -1,15 +1,17 @@
+import "./HeroSection.css";
 const HeroSection = () => {
   return (
-    <section className="hero-section position-relative overflow-hidden">
+    <section
+      className="hero-section position-relative overflow-hidden"
+      id="hero-section"
+    >
       <div className="hero-dots-pattern"></div>
       <div className="hero-diagonal-line"></div>
 
       <div className="container-fluid px-0">
         <div className="row g-0 align-items-center">
-
           {/* Columna izquierda */}
           <div className="col-lg-6 hero-left px-5 py-5">
-
             <div className="hero-eyebrow d-inline-flex align-items-center gap-2 mb-3">
               <span className="eyebrow-dot"></span>
               <span className="eyebrow-text">Stock verificado · Bogotá</span>
@@ -17,17 +19,23 @@ const HeroSection = () => {
 
             <h1 className="hero-title mb-3">
               Hardware usado,
-              <span className="hero-title-accent d-block">calidad garantizada.</span>
+              <span className="hero-title-accent d-block">
+                calidad garantizada.
+              </span>
             </h1>
 
             <p className="hero-subtitle mb-4">
-              Cada pieza pasa por inspección técnica antes de llegar a tus manos.
-              Compra con confianza, recibe lo que ves.
+              Cada pieza pasa por inspección técnica antes de llegar a tus
+              manos. Compra con confianza, recibe lo que ves.
             </p>
 
             <div className="d-flex align-items-center gap-3 flex-wrap mb-4">
-              <a href="#productos" className="btn btn-hero-main">Ver productos →</a>
-              <a href="/contact" className="btn btn-hero-sec">¿Cómo verificamos?</a>
+              <a href="#productos" className="btn btn-hero-main">
+                Ver productos →
+              </a>
+              <a href="/contact" className="btn btn-hero-sec">
+                ¿Cómo verificamos?
+              </a>
             </div>
 
             <div className="hero-trust-row d-flex gap-4 pt-3">
@@ -37,20 +45,20 @@ const HeroSection = () => {
               </div>
               <div className="trust-item">
                 <span className="trust-num">98%</span>
-                <span className="trust-label d-block">clientes satisfechos</span>
+                <span className="trust-label d-block">
+                  clientes satisfechos
+                </span>
               </div>
               <div className="trust-item">
                 <span className="trust-num">30 días</span>
                 <span className="trust-label d-block">garantía mínima</span>
               </div>
             </div>
-
           </div>
 
           {/* Columna derecha */}
           <div className="col-lg-6 hero-right d-flex align-items-center justify-content-center py-5">
             <div className="cards-stack position-relative">
-
               {/* Tarjeta trasera */}
               <div className="product-card-hero card-back position-absolute">
                 <div className="pcard-img d-flex align-items-center justify-content-center mb-2">
@@ -87,10 +95,8 @@ const HeroSection = () => {
                   <p className="vf-sub mb-0">Probado antes de vender</p>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>

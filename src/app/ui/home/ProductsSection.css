@@ -1,0 +1,12 @@
+.products-section-container{
+    padding-top: 3rem;
+}
+
+#products-section-title {
+    color: var(--primary);
+    font-size: 1.6rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    text-align: center;
+}
+

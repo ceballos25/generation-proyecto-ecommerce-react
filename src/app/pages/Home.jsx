@@ -1,13 +1,13 @@
-import HeroSection from '../ui/home/HeroSection';
-import ProductsSection from '../ui/home/ProducstSection';
-import '../ui/styles/home.css'
+import HeroSection from "../ui/home/HeroSection";
+import ProductsSection from "../ui/home/ProductsSection";
+import "../ui/styles/home.css";
 
 const Home = () => {
-    return (
-        <>
-        <HeroSection />
-        <ProductsSection />
-        </>
-    )
-}
+  return (
+    <>
+      <HeroSection />
+      <ProductsSection />
+    </>
+  );
+};
 export default Home;

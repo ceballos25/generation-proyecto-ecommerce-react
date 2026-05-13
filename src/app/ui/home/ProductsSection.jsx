@@ -1,28 +1,30 @@
-import ProductCard from './ProductCard';
-import { useProducts } from '../../hooks/useProduct.js';
-import { useState } from 'react';
+import ProductCard from "./ProductCard.jsx";
+import { useProducts } from "../../hooks/useProduct.js";
+import { useState } from "react";
+import "./ProductsSection.css";
 
 const ProductsSection = () => {
   const { products, loading } = useProducts();
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const categories = [
-    ...new Set(products.map(p => p.category))
-  ];
+  const categories = [...new Set(products.map((p) => p.category))];
 
   const filteredProducts =
     selectedCategory === "all"
-      ? products.filter(p => p.isActive)
-      : products.filter(p => p.category === selectedCategory && p.isActive);
+      ? products.filter((p) => p.isActive)
+      : products.filter((p) => p.category === selectedCategory && p.isActive);
 
   return (
-    <section className="container-fluid px-4 px-md-5 stock-container" id="productos">
-
+    <section
+      className="container-fluid px-4 px-md-5 stock-container products-section-container"
+      id="productos"
+    >
       <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
-        <h2 className="section-title mb-0">Productos</h2>
+        <h2 className="section-title mb-0" id="products-section-title">
+          Productos
+        </h2>
 
         <div className="filter-pills d-flex flex-wrap gap-2">
-
           <button
             className={`filter-pill ${selectedCategory === "all" ? "active" : ""}`}
             onClick={() => setSelectedCategory("all")}
@@ -30,7 +32,7 @@ const ProductsSection = () => {
             Todos
           </button>
 
-          {categories.map(cat => (
+          {categories.map((cat) => (
             <button
               key={cat}
               className={`filter-pill ${selectedCategory === cat ? "active" : ""}`}
@@ -39,7 +41,6 @@ const ProductsSection = () => {
               {cat}
             </button>
           ))}
-
         </div>
       </div>
 
@@ -55,7 +56,7 @@ const ProductsSection = () => {
 
       {!loading && (
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
-          {filteredProducts.map(product => (
+          {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
@@ -67,7 +68,6 @@ const ProductsSection = () => {
           <p>No hay productos en esta categoría.</p>
         </div>
       )}
-
     </section>
   );
 };

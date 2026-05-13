@@ -85,6 +85,34 @@ body {
     font-size: 1.6rem;
 }
 
+.coroto-navbar {
+    border-bottom: 1px solid rgba(50, 89, 75, 0.12);
+}
+
+.nav-link-coroto {
+    color: var(--text-dark);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link-coroto:hover {
+    background-color: var(--gray-light);
+    color: var(--primary);
+}
+
+.nav-link-coroto .bi {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.nav-link-coroto.active {
+    background-color: var(--primary);
+    color: var(--white) !important;
+}
+
+.nav-link-coroto.active .bi {
+    color: var(--white) !important;
+}
+
 .nav-icon-btn {
     width: 46px;
     height: 46px;
@@ -247,6 +275,17 @@ body {
 
 .offcanvas-nav-link .bi {
     color: var(--primary);
+}
+
+.offcanvas-nav-link.active,
+.offcanvas-nav-link--active {
+    background-color: var(--primary);
+    color: var(--white) !important;
+}
+
+.offcanvas-nav-link.active .bi,
+.offcanvas-nav-link--active .bi {
+    color: var(--white) !important;
 }
 
 .offcanvas-logout {

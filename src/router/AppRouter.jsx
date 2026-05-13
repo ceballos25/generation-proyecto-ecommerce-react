@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import CorotoNavBar from "../app/ui/components/NavBar.jsx";
+import CorotoFooter from "../app/ui/components/Footer.jsx";
 
 import Home from "../app/pages/Home.jsx";
 import About from "../app/pages/About.jsx";
@@ -17,6 +18,7 @@ const AppRouter = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <CorotoFooter />
     </>
   );
 };

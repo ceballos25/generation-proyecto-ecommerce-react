@@ -7,12 +7,10 @@
   height: 90%;
 }
 
-/* Swiper container — no usar overflow:visible aquí: anula .swiper y rompe el swipe horizontal */
 .team-swiper {
   padding: 40px 0 60px;
 }
 
-/* Dejar que Swiper controle el ancho según slidesPerView; un ancho fijo desincroniza translate3d */
 .team-swiper .swiper-slide {
   height: auto;
   transition: transform 0.3s ease, opacity 0.3s ease;

@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Cart = () => {
-  const { cart, remove, updateQuantity, totalItems, totalPrice } = useCart();
+  const { cart, remove, updateQuantity, getTotalItems, getTotalPrice } = useCart();
+
   const [terms, setTerms] = useState(false);
   const navigate = useNavigate();
-
+  
+  const totalItems = getTotalItems();
+  const totalPrice = getTotalPrice();
   const iva = totalPrice * 0.19;
 
   const handleCheckout = () => {

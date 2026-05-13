@@ -1,4 +1,4 @@
-const apiUrl = import.meta.env.VITE_API_URL;
+const BASE_URL = 'http://localhost:3000'; 
 
 async function request(endpoint, options = {}) {
     const config = {
@@ -10,7 +10,7 @@ async function request(endpoint, options = {}) {
         ...options,
     };
 
-    const response = await fetch(`${apiUrl}${endpoint}`, config);
+    const response = await fetch(`${BASE_URL}${endpoint}`, config);
 
     if (!response.ok) {
         const error = await response.json().catch(() => ({}));

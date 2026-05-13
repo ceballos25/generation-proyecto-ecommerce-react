@@ -6,10 +6,13 @@ import './app/ui/styles/reset.css'
 import { App } from './App.jsx'
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from './app/hooks/context/CartContext.jsx';
 
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <App />
+    <CartProvider>
+     <App />
+    </CartProvider>
   </BrowserRouter>,
 )

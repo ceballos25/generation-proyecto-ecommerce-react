@@ -7,6 +7,7 @@ import About from "../app/pages/About.jsx";
 import Contact from "../app/pages/Contact.jsx";
 import Cart from "../app/pages/Cart.jsx";
 
+// Aquí va el “marco” del sitio: barra y pie fijos, y en el medio la página según la URL para reutilizar y no estar pegando refactorizado
 const AppRouter = () => {
   return (
     <>

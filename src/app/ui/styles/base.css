@@ -48,10 +48,10 @@
 
 body {
     width: 100%;
-    /* cambio*/
-    height: 100vh;
+    min-height: 100dvh;
+    min-height: 100vh;
     background-color: var(--gray-light);
-    font-family: var(--font);
+    font-family: var(--font-primary);
 
 
     .dinamic-container {
@@ -396,7 +396,7 @@ body {
 .btn-outline-dark:hover {
     background-color: var(--bg-primary);
     border-color: var(--gray-light) !important;
-    color: var();
+    color: var(--text-dark);
 }
 
 /* Solo para los hovers de los links, Bootstrap no tiene hover-color utilities */

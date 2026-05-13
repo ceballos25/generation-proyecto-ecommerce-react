@@ -1,3 +1,5 @@
+import { api } from "./api.js";
+
 export const userService = {
   getAll: () => api.get('/users'),
   getById: (id) => api.get(`/users/${id}`),

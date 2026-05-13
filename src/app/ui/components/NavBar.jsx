@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
+
+const LOGO_SRC = "/login.png";
 
 const navLinkClass = ({ isActive }) =>
   `nav-link d-inline-flex align-items-center gap-2 px-3 py-2 rounded-3 fw-semibold nav-link-coroto ${
@@ -11,6 +13,7 @@ const CorotoNavBar = () => {
   const [user, setUser] = useState(null);
   const { getTotalItems } = useCart();
   const totalItems = getTotalItems();
+  const offcanvasCloseBtnRef = useRef(null);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("authUser"));
@@ -23,22 +26,24 @@ const CorotoNavBar = () => {
     window.location.reload();
   };
 
+  // Menú hamburguesa: simula pulsar la X para cerrar (así el fondo oscuro no falla en el móvil)
+  const closeMobileNav = useCallback(() => {
+    offcanvasCloseBtnRef.current?.click();
+  }, []);
+
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg sticky-top bg-white coroto-navbar shadow-sm"
+        className="navbar navbar-expand-lg sticky-top bg-white coroto-navbar offcanvas-border shadow-sm"
         aria-label="Principal"
       >
-        <div className="container py-2">
-          <Link
-            className="navbar-brand d-flex align-items-center gap-2"
-            to="/"
-          >
+        <div className="container mt-3">
+          <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
             <img
-              src="/assets/pages/login.png"
+              src={LOGO_SRC}
               className="img-fluid"
-              alt="Coroto"
-              width={88}
+              alt="logo-nav"
+              width={100}
             />
             <span className="fw-bold d-none d-md-inline nav-brand-text">
               Coroto
@@ -65,7 +70,7 @@ const CorotoNavBar = () => {
             </div>
 
             <button
-              className="navbar-toggler border-0 shadow-none px-2"
+              className="navbar-toggler border-0 shadow-none ps-1"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasNav"
@@ -212,6 +217,8 @@ const CorotoNavBar = () => {
         tabIndex={-1}
         id="offcanvasNav"
         aria-labelledby="offcanvasNavLabel"
+        data-bs-scroll="false"
+        data-bs-backdrop="true"
       >
         <div className="offcanvas-header border-bottom align-items-center">
           <div>
@@ -221,6 +228,7 @@ const CorotoNavBar = () => {
             <p className="small text-muted mb-0">Menú</p>
           </div>
           <button
+            ref={offcanvasCloseBtnRef}
             type="button"
             className="btn-close"
             data-bs-dismiss="offcanvas"
@@ -254,7 +262,7 @@ const CorotoNavBar = () => {
                   isActive ? " offcanvas-nav-link--active" : ""
                 }`
               }
-              data-bs-dismiss="offcanvas"
+              onClick={closeMobileNav}
             >
               <i className="bi bi-house-door" aria-hidden="true" />
               Inicio
@@ -266,7 +274,7 @@ const CorotoNavBar = () => {
                   isActive ? " offcanvas-nav-link--active" : ""
                 }`
               }
-              data-bs-dismiss="offcanvas"
+              onClick={closeMobileNav}
             >
               <i className="bi bi-people" aria-hidden="true" />
               Nosotros
@@ -278,7 +286,7 @@ const CorotoNavBar = () => {
                   isActive ? " offcanvas-nav-link--active" : ""
                 }`
               }
-              data-bs-dismiss="offcanvas"
+              onClick={closeMobileNav}
             >
               <i className="bi bi-envelope" aria-hidden="true" />
               Contacto
@@ -286,12 +294,15 @@ const CorotoNavBar = () => {
             <Link
               to="/cart"
               className="offcanvas-nav-link d-flex align-items-center gap-2"
-              data-bs-dismiss="offcanvas"
+              onClick={closeMobileNav}
             >
               <i className="bi bi-cart3" aria-hidden="true" />
               Carrito
               {totalItems > 0 && (
-                <span className="badge rounded-pill ms-auto" style={{ backgroundColor: "var(--primary)" }}>
+                <span
+                  className="badge rounded-pill ms-auto"
+                  style={{ backgroundColor: "var(--primary)" }}
+                >
                   {totalItems > 99 ? "99+" : totalItems}
                 </span>
               )}
@@ -306,7 +317,7 @@ const CorotoNavBar = () => {
                   <Link
                     to="/admin_dashboard"
                     className="offcanvas-nav-link d-flex align-items-center gap-2"
-                    data-bs-dismiss="offcanvas"
+                    onClick={closeMobileNav}
                   >
                     <i className="bi bi-speedometer2" aria-hidden="true" />
                     Panel admin
@@ -315,8 +326,10 @@ const CorotoNavBar = () => {
                 <button
                   type="button"
                   className="offcanvas-logout"
-                  data-bs-dismiss="offcanvas"
-                  onClick={handleLogout}
+                  onClick={(e) => {
+                    closeMobileNav();
+                    handleLogout(e);
+                  }}
                 >
                   <i className="bi bi-box-arrow-right" aria-hidden="true" />
                   Cerrar sesión
@@ -327,7 +340,7 @@ const CorotoNavBar = () => {
                 <Link
                   to="/login"
                   className="offcanvas-nav-link d-flex align-items-center gap-2"
-                  data-bs-dismiss="offcanvas"
+                  onClick={closeMobileNav}
                 >
                   <i className="bi bi-box-arrow-in-right" aria-hidden="true" />
                   Iniciar sesión
@@ -335,7 +348,7 @@ const CorotoNavBar = () => {
                 <Link
                   to="/register"
                   className="btn btn-primary w-100 rounded-3 d-flex align-items-center justify-content-center gap-2 py-2"
-                  data-bs-dismiss="offcanvas"
+                  onClick={closeMobileNav}
                 >
                   <i className="bi bi-person-plus" aria-hidden="true" />
                   Crear cuenta

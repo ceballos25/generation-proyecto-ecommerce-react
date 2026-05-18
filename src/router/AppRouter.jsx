@@ -6,6 +6,7 @@ import About from "../app/pages/About.jsx";
 import Contact from "../app/pages/Contact.jsx";
 import Cart from "../app/pages/Cart.jsx";
 import Login from "../app/ui/login/login.jsx";
+import Register from "../app/ui/register/register.jsx";
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );

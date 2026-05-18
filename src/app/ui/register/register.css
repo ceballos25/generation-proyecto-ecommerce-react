@@ -1,0 +1,27 @@
+/* Register.css */
+
+.register-badge {
+  width: fit-content;
+}
+
+.register-hero-description {
+  max-width: 300px;
+}
+
+.register-hero-image {
+  max-width: 280px;
+}
+
+.register-stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+.register-form-col {
+  max-width: 600px;
+}
+
+.register-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}

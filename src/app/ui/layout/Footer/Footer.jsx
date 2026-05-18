@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Footer.css";
 
 const headingStyle = {
   color: "var(--beige)",
@@ -9,9 +10,9 @@ const iconStyle = { color: "var(--beige)" };
 
 const socialBtnStyle = { width: 40, height: 40 };
 
-const CorotoFooter = () => {
+const Footer = () => {
   return (
-    <footer className="text-white pt-5 pb-4">
+    <footer className="text-white pt-5 pb-4 footer-container">
       <div className="container">
         <div className="row g-4">
           <div className="col-12 col-lg-4">
@@ -62,7 +63,10 @@ const CorotoFooter = () => {
           </div>
 
           <div className="col-6 col-sm-4 col-lg-2 offset-lg-1">
-            <h6 className="text-uppercase small fw-bold mb-3" style={headingStyle}>
+            <h6
+              className="text-uppercase small fw-bold mb-3"
+              style={headingStyle}
+            >
               Nosotros
             </h6>
             <ul className="list-unstyled mb-0">
@@ -98,7 +102,10 @@ const CorotoFooter = () => {
           </div>
 
           <div className="col-6 col-sm-4 col-lg-2">
-            <h6 className="text-uppercase small fw-bold mb-3" style={headingStyle}>
+            <h6
+              className="text-uppercase small fw-bold mb-3"
+              style={headingStyle}
+            >
               Legal
             </h6>
             <ul className="list-unstyled mb-0">
@@ -136,7 +143,10 @@ const CorotoFooter = () => {
           </div>
 
           <div className="col-12 col-sm-4 col-lg-3">
-            <h6 className="text-uppercase small fw-bold mb-3" style={headingStyle}>
+            <h6
+              className="text-uppercase small fw-bold mb-3"
+              style={headingStyle}
+            >
               Ubicación
             </h6>
             <ul className="list-unstyled mb-0">
@@ -174,4 +184,4 @@ const CorotoFooter = () => {
   );
 };
 
-export default CorotoFooter;
+export default Footer;

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useCart } from "../../hooks/useCart";
+import { useCart } from "../../../hooks/useCart";
 import "./NavBar.css";
 
 const LOGO_SRC = "/login.png";
@@ -10,7 +10,7 @@ const navLinkClass = ({ isActive }) =>
     isActive ? "active" : ""
   }`;
 
-const CorotoNavBar = () => {
+const NavBar = () => {
   const [user, setUser] = useState(null);
   const { getTotalItems } = useCart();
   const totalItems = getTotalItems();
@@ -35,7 +35,7 @@ const CorotoNavBar = () => {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg sticky-top bg-white coroto-navbar offcanvas-border shadow-sm"
+        className="navbar navbar-expand-lg sticky-top bg-white coroto-navbar offcanvas-border shadow-sm navbar-container"
         aria-label="Principal"
       >
         <div className="container mt-3">
@@ -377,4 +377,4 @@ const CorotoNavBar = () => {
   );
 };
 
-export default CorotoNavBar;
+export default NavBar;

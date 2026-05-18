@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import CorotoNavBar from "../app/ui/components/NavBar.jsx";
-import CorotoFooter from "../app/ui/components/Footer.jsx";
+
+import NavBar from "../app/ui/layout/NavBar/NavBar.jsx";
+import Footer from "../app/ui/layout/Footer/Footer.jsx";
 
 import Home from "../app/pages/Home.jsx";
 import About from "../app/pages/About.jsx";
@@ -13,7 +14,7 @@ import Register from "../app/ui/register/register.jsx";
 const AppRouter = () => {
   return (
     <>
-      <CorotoNavBar />
+      <NavBar />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,7 +24,7 @@ const AppRouter = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
-      <CorotoFooter />
+      <Footer />
     </>
   );
 };

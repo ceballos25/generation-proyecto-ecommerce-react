@@ -1,4 +1,3 @@
-import { Swiper } from "swiper/react";
 import SwiperAbout from "../ui/about/SwiperAbout";
 import "swiper/css";
 import "../ui/styles/about.css";
@@ -15,8 +14,8 @@ const About = () => {
                   <img
                     src="https://kimi-web-img.moonshot.cn/img/dreamewaste.com/0dc0b02eb632ad0d839dbb2156af419d45e23329.png"
                     className="img-fluid rounded shadow"
-                    alt="Componentes electrónicos reutilizados - economía circular en Coroto Colombia"
-                    style={{ maxHeight: "400px", objectFit: "cover" }}
+                    alt="Coroto"
+                    style={{ maxHeight: "400px", objectFit: "contain" }}
                   />
                 </div>
 
@@ -40,10 +39,10 @@ const About = () => {
               <div className="row align-items-center flex-md-row-reverse">
                 <div className="col-md-6 mb-4 mb-md-0 text-center d-flex justify-content-center">
                   <img
-                    src="../assets/colombia.png"
-                    className="img-fluid "
+                    src="/colombia.png"
+                    className="img-fluid"
                     alt="Colombia - Visión Coroto 2030"
-                    style={{ maxHeight: "400px" }}
+                    style={{ maxHeight: "400px", objectFit: "contain" }}
                   />
                 </div>
                 <div className="col-md-6 d-flex flex-column align-items-center text-center">

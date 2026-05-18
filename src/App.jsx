@@ -1,18 +1,8 @@
-import { useState } from 'react'
-import NavBar  from './app/ui/components/NavBar.jsx'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import AppRouter from './router/AppRouter.jsx';
-import './app/ui/styles/base.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './app/ui/styles/base.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
+// App solo delega en el router: barra, páginas y pie están definidos en AppRouter.jsx
 export function App() {
-  
-  return <AppRouter />
-  
+  return <AppRouter />;
 }
-
-

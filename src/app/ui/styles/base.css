@@ -48,10 +48,10 @@
 
 body {
     width: 100%;
-    /* cambio*/
-    height: 100dvh;
+    min-height: 100dvh;
+    min-height: 100vh;
     background-color: var(--gray-light);
-    font-family: var(--font);
+    font-family: var(--font-primary);
 
 
     .dinamic-container {
@@ -83,6 +83,34 @@ body {
     color: var(--primary);
     letter-spacing: -0.5px;
     font-size: 1.6rem;
+}
+
+.coroto-navbar {
+    border-bottom: 1px solid rgba(50, 89, 75, 0.12);
+}
+
+.nav-link-coroto {
+    color: var(--text-dark);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link-coroto:hover {
+    background-color: var(--gray-light);
+    color: var(--primary);
+}
+
+.nav-link-coroto .bi {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.nav-link-coroto.active {
+    background-color: var(--primary);
+    color: var(--white) !important;
+}
+
+.nav-link-coroto.active .bi {
+    color: var(--white) !important;
 }
 
 .nav-icon-btn {
@@ -249,6 +277,17 @@ body {
     color: var(--primary);
 }
 
+.offcanvas-nav-link.active,
+.offcanvas-nav-link--active {
+    background-color: var(--primary);
+    color: var(--white) !important;
+}
+
+.offcanvas-nav-link.active .bi,
+.offcanvas-nav-link--active .bi {
+    color: var(--white) !important;
+}
+
 .offcanvas-logout {
     border: 1px solid var(--error);
     color: var(--error);
@@ -357,7 +396,7 @@ body {
 .btn-outline-dark:hover {
     background-color: var(--bg-primary);
     border-color: var(--gray-light) !important;
-    color: var();
+    color: var(--text-dark);
 }
 
 /* Solo para los hovers de los links, Bootstrap no tiene hover-color utilities */

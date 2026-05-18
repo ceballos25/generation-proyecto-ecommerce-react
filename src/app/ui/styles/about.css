@@ -7,17 +7,13 @@
   height: 90%;
 }
 
-/* Swiper container */
 .team-swiper {
   padding: 40px 0 60px;
-  overflow: visible;
 }
 
-/* Slide base */
 .team-swiper .swiper-slide {
-  width: 400px;
   height: auto;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Slide activo (centro) */
@@ -42,13 +38,6 @@
   opacity: 1;
   width: 24px;
   border-radius: 5px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .team-swiper .swiper-slide {
-    width: 320px;
-  }
 }
 
 .border-danger {

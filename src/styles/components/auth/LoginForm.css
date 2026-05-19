@@ -1,0 +1,14 @@
+.loginform-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  .login-container {
+    padding: 10rem 2rem 4rem;
+    margin: 0;
+
+    .form-container {
+      margin: 0;
+    }
+  }
+}

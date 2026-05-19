@@ -1,30 +1,39 @@
+import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+import { ROUTES } from "./routes";
 
-import NavBar from "../app/ui/layout/NavBar/NavBar.jsx";
-import Footer from "../app/ui/layout/Footer/Footer.jsx";
+import Layout from "../components/layout/Layout";
+import NavBar from "../components/layout/NavBar/NavBar";
+import Footer from "../components/layout/Footer/Footer";
 
-import Home from "../app/pages/Home.jsx";
-import About from "../app/pages/About.jsx";
-import Contact from "../app/pages/Contact.jsx";
-import Cart from "../app/pages/Cart.jsx";
-import Login from "../app/ui/login/login.jsx";
-import Register from "../app/ui/register/register.jsx";
+const Home = lazy(() => import("../pages/Home"));
+const About = lazy(() => import("../pages/About"));
+const Contact = lazy(() => import("../pages/Contact"));
+const Cart = lazy(() => import("../pages/Cart"));
+const Login = lazy(() => import("../pages/Login"));
+const Register = lazy(() => import("../pages/Register"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
-// Aquí va el “marco” del sitio: barra y pie fijos, y en el medio la página según la URL para reutilizar y no estar pegando refactorizado
 const AppRouter = () => {
   return (
     <>
       <NavBar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-      <Footer />
+      <Layout>
+        <Suspense
+          fallback={<div className="text-center py-5">Cargando...</div>}
+        >
+          <Routes>
+            <Route path={ROUTES.HOME} element={<Home />} />
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.CONTACT} element={<Contact />} />
+            <Route path={ROUTES.CART} element={<Cart />} />
+            <Route path={ROUTES.LOGIN} element={<Login />} />
+            <Route path={ROUTES.REGISTER} element={<Register />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+        <Footer />
+      </Layout>
     </>
   );
 };

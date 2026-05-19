@@ -25,7 +25,7 @@ const teamMembers = [
     name: "Camilo Castellanos",
     role: "Backend Developer",
     stack: "Java / Bootstrap / Spring Boot",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    image: "https://avatars.githubusercontent.com/u/113156319?v=4",
     github: "#",
     linkedin: "#",
   },

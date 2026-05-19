@@ -1,7 +1,7 @@
-import ProductCard from "./ProductCard/ProductCard.jsx";
-import { useProducts } from "../../../hooks/useProducts.js";
+import ProductCard from "./ProductCard.jsx";
+import { useProducts } from "../../hooks/useProducts.js";
 import { useState } from "react";
-import "./ProductsSection.css";
+import "../../styles/components/home/ProductsSection.css";
 
 const ProductsSection = () => {
   const { products, loading } = useProducts();

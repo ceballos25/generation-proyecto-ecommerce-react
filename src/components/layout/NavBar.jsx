@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useCart } from "../../../hooks/useCart";
-import "./NavBar.css";
+import { useCart } from "../../hooks/useCart";
+import "../../styles/components/layout/NavBar.css";
 
 const navLinkClass = ({ isActive }) =>
   `nav-link d-inline-flex align-items-center gap-2 px-3 py-2 rounded-3 fw-semibold nav-link-coroto ${

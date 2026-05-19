@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { ROUTES } from "./routes";
 
 import Layout from "../components/layout/Layout";
-import NavBar from "../components/layout/NavBar/NavBar";
-import Footer from "../components/layout/Footer/Footer";
+import NavBar from "../components/layout/NavBar";
+import Footer from "../components/layout/Footer";
 
 const Home = lazy(() => import("../pages/Home"));
 const About = lazy(() => import("../pages/About"));

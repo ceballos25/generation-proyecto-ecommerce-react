@@ -92,3 +92,10 @@
     padding: 0 2rem 4rem;
   }
 }
+
+@media (max-width: 960px) {
+  .cart-page .cart-component-container {
+    flex-direction: column;
+    padding: 0 1rem 4rem;
+  }
+}

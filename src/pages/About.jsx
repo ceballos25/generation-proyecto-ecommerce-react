@@ -1,6 +1,6 @@
 import SwiperAbout from "../components/about/SwiperAbout";
 import "swiper/css";
-import "./About.css";
+import "../styles/pages/About.css";
 
 const About = () => {
   return (
@@ -37,7 +37,7 @@ const About = () => {
             <div className="row align-items-center flex-md-row-reverse">
               <div className="col-md-6 mb-4 mb-md-0 text-center d-flex justify-content-center">
                 <img
-                  src="/colombia.png"
+                  src="src/assets/about/colombia.png"
                   className="img-fluid"
                   alt="Colombia - Visión Coroto 2030"
                   style={{ maxHeight: "400px", objectFit: "contain" }}

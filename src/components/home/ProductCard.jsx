@@ -1,6 +1,6 @@
-import { formatPrice } from "../../../../services/utils.service";
+import { formatPrice } from "../../services/utils.service";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../../../hooks/useCart";
+import { useCart } from "../../hooks/useCart";
 import Swal from "sweetalert2";
 
 const ProductCard = ({ product }) => {

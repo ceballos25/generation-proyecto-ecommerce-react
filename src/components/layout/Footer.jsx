@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Footer.css";
+import "../../styles/components/layout/Footer.css";
 
 const headingStyle = {
   color: "var(--beige)",
